@@ -1,0 +1,166 @@
+/* Ensure the body takes up the full viewport */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* Container for the video background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Places the video behind other content */
+}
+
+/* Styling the video element */
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire container */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Style for the game container to ensure content is above the video */
+#game-container {
+    background: rgb(241, 241, 241);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white
+    position: relative;
+    z-index: 1;
+    /* Additional styling as needed */
+}
+
+button {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #ff6b6b;
+}
+
+button.option-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+button.option-btn:hover {
+    background: #45a049;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual Card */
+.card {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px; /* Perspective for 3D flip effect */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Card Front Design */
+.card-front {
+    background: white;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.card-front .symbol-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.card-front .symbol {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-front .symbol.hearts {
+    color: red; /* Red for hearts */
+}
+
+.card-front .symbol.diamonds {
+    color: red; /* Red for diamonds */
+}
+
+/* Card Back Design */
+.card-back {
+    background: url('card-back.jpg') no-repeat center center; /* Upload your card back image */
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+/* Message Display */
+.message-display {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
